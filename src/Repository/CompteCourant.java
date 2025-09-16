@@ -1,6 +1,5 @@
-package Entity;
-
-import Repository.Compte;
+package Repository;
+import Entity.Compte;
 
 public class CompteCourant extends Compte {
 
