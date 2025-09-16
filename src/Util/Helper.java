@@ -17,5 +17,9 @@ public class Helper {
         return String.format("CPT-%05d", nombre);
     }
 
-
+    public static String genererDateOperation() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return now.format(formatter);
+    }
 }
