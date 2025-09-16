@@ -32,4 +32,10 @@ public class Dbconnection {
     }
 
 
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+
 }
