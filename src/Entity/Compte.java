@@ -1,19 +1,27 @@
 package Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Compte {
 
 
     protected String Code;
-    protected  Double Solde;
+    protected  Double Solde = 0.0;
     protected List<String> listeOperations;
 
-    public abstract String  retirer(Double montant);
+    public Compte(Double Solde , String Code) {
+        this.Solde = Solde;
+        this.Code = Code;
+        this.listeOperations = new ArrayList<>();
+    }
 
-    public abstract double calculerInteret(Double montant);
+    public abstract void créeCompte();
+    public abstract void  retirer(String Code,Double montant);
 
-    public abstract List<String> afficherDetails();
+    public abstract double calculerInteret();
+
+    public abstract void afficherDetails();
 
     public String getCode() {
         return Code;
