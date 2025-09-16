@@ -37,5 +37,15 @@ public class Dbconnection {
         return connection;
     }
 
+    public static void main(String[] args) {
+        Dbconnection db = Dbconnection.getInstance();
+        Connection conn = db.getConnection();
+
+        if (conn != null) {
+            System.out.println("Connexion obtenue via Singleton.");
+        } else {
+            System.out.println("Erreur lors de la récupération de la connexion.");
+        }
+    }
 
 }
