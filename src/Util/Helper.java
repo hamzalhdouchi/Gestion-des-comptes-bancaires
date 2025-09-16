@@ -11,5 +11,11 @@ public class Helper {
         return UUID.randomUUID().toString();
     }
 
+    public static String genererCodeCompte() {
+        Random random = new Random();
+        int nombre = random.nextInt(100000); // nombre entre 0 et 99999
+        return String.format("CPT-%05d", nombre);
+    }
+
 
 }
