@@ -16,8 +16,8 @@ public abstract class Compte {
         this.listeOperations = new ArrayList<>();
     }
 
-    public abstract String créeCompte();
-    public abstract void  retirer(Double montant);
+    public abstract void créeCompte();
+    public abstract void  retirer(String Code,Double montant);
 
     public abstract double calculerInteret();
 

@@ -12,6 +12,6 @@ public class Retrait extends Operation {
         return destination;
     }
     public void setDestination(String destination) {
-        this.destination = destination;
+
     }
 }
