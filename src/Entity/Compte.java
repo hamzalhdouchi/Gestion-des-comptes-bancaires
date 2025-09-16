@@ -2,7 +2,7 @@ package Entity;
 
 import java.util.List;
 
-abstract class Compte {
+public abstract class Compte {
 
 
     protected String Code;
