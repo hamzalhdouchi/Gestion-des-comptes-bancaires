@@ -13,7 +13,7 @@ public class Helper {
 
     public static String genererCodeCompte() {
         Random random = new Random();
-        int nombre = random.nextInt(100000); // nombre entre 0 et 99999
+        int nombre = random.nextInt(100000);
         return String.format("CPT-%05d", nombre);
     }
 

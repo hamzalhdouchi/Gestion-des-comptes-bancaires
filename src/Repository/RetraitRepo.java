@@ -5,13 +5,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import Util.Helper;
 
 public class RetraitRepo {
     private final Connection connection = Dbconnection.getInstance().getConnection();
     private static final int DECOUVERT = -10000;
 
     // Retirer un montant
-    public void retirer(String code, double montant) {
+    public void retirer(String code, double montant , String destination) {
         String sql = "SELECT solde, type_compte FROM compte WHERE code = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -45,6 +46,7 @@ public class RetraitRepo {
                 System.out.println("Compte introuvable.");
             }
 
+            enrgister(code, montant, destination);
         } catch (SQLException e) {
             System.out.println("Erreur SQL lors du retrait : " + e.getMessage());
         }
@@ -63,13 +65,23 @@ public class RetraitRepo {
     }
 
 
-    public void enrgister(String code, double montant ) {
+    public void enrgister(String code, double montant ,  String destination) {
             String sql = "insert into operation(id,date_operation,montant,type_operation,destination,compte_id) VALUES (?,?,?,?,?,?)";
-
+                    String UUID = Helper.genererUUID();
+                    String date = Helper.genererDateOperation();
             try {
+                PreparedStatement stmt = this.connection.prepareStatement(sql);
+                stmt.setString(1, UUID);
+                stmt.setString(2, date);
+                stmt.setDouble(3, montant);
+                stmt.setString(4, "retrait");
+                stmt.setString(5, destination);
+                stmt.setString(6, code);
+                stmt.executeUpdate();
+                System.out.println("operation save");
 
-            }catch{
-
+            }catch(Exception e){
+                System.out.println(e.getMessage());
         }
     }
 }

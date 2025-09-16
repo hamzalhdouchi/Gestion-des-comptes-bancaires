@@ -8,6 +8,12 @@ public abstract class Operation {
     protected Date date;
     protected Double montant;
 
+    public Operation(String numero, Date date, Double montant) {
+        this.numero = numero;
+        this.date = date;
+        this.montant = montant;
+    }
+
 
 
 }

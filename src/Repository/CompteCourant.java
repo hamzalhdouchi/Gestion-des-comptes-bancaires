@@ -11,10 +11,6 @@ public class CompteCourant extends Compte {
 
     private Connection connection = Dbconnection.getInstance().getConnection();
 
-    public CompteCourant(String Code, Double Sold) {
-        super(Sold, Code);
-    }
-
     public void créeCompte(){
         String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
         try {

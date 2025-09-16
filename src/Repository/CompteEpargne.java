@@ -13,9 +13,6 @@ public class CompteEpargne extends Compte {
     private final Double tauxInteret = 2.5;
     private Connection connection = Dbconnection.getInstance().getConnection();
 
-    public CompteEpargne(Double Sold, String Code) {
-        super(Sold, Code);
-    }
     public void créeCompte(){
         String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
         try {
