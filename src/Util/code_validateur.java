@@ -5,7 +5,7 @@ import java.util.Date;
 public class code_validateur {
 
 
-    private String pattern;
+    private String UUIS;
     private Date ValidDate;
 
 
