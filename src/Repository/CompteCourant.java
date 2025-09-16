@@ -9,7 +9,6 @@ import dbConnection.Dbconnection;
 
 public class CompteCourant extends Compte {
 
-    private  static final  Integer Découvert = -10000;
     private Connection connection = Dbconnection.getInstance().getConnection();
 
     public CompteCourant(String Code, Double Sold) {
@@ -51,31 +50,5 @@ public class CompteCourant extends Compte {
         return 0;
     }
 
-    public void retirer(String Code,Double montant){
-        String sql = "select * from compte where Code = ?";
-        Compte val = null;
-        try{
-            PreparedStatement sold =this.connection.prepareStatement(sql);
-            sold.setString(1, Code);
-            ResultSet rs = sold.executeQuery();
-            Double solde = rs.getDouble("solde");
-            if (montant <= solde - Découvert){
-                Double newSolde = solde - montant;
-                this.Solde  = newSolde;
-                sql = "update compte set solde = ? where Code = ?";
-                try
-                    {
-                    PreparedStatement update = this.connection.prepareStatement(sql);
-                    update.setDouble(1, newSolde);
-                    }catch(Exception e){
-                    System.out.println("update field");
-                }
-            }else {
-                System.out.println("votre solde éte unsatesfusent");
-            }
-        }catch(Exception e){
-            System.out.println("recuperation de la compte field");
-        }
 
-    }
 }

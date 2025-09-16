@@ -1,4 +1,6 @@
 package Repository;
 
-public class versementRepo {
+import Entity.Versement;
+
+public class versementRepo extends Versement {
 }
