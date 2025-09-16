@@ -17,8 +17,6 @@ public abstract class Compte {
     }
 
     public abstract void créeCompte();
-    public abstract void  retirer(String Code,Double montant);
-
     public abstract double calculerInteret();
 
     public abstract void afficherDetails();
