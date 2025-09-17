@@ -88,11 +88,9 @@ public class Main {
                     System.out.println("*******   EFFECTUER UN VERSEMENT   *****");
                     System.out.println("=======================================");
 
-                    boolean userHasAccount = (CompteCourant.getCode() != null || compteEpargne.getCode() != null);
                     String codeCompte = null;
                     String codeBeneficiaire;
 
-                    if (!userHasAccount) {
                         System.out.print("Avez-vous un compte ? (yes/no) : ");
                         String ins = input.nextLine().toLowerCase();
                         if (ins.equals("yes")) {
@@ -102,8 +100,6 @@ public class Main {
                             System.out.println("******* Créez un compte d'abord *******");
                             break;
                         }
-                    }
-
                     System.out.print("Entrez le montant : ");
                     double montant;
                     try {
@@ -138,19 +134,17 @@ public class Main {
                     System.out.println("=======================================");
 
                     RetraitRepo RetraitRepo = new RetraitRepo();
-                    boolean userAccount = (CompteCourant.getCode() != null || compteEpargne.getCode() != null);
                     String codeDeCompte = null;
 
-                    if (!userAccount) {
                         System.out.print("Avez-vous un compte ? (yes/no) : ");
-                        String ins = input.nextLine().toLowerCase();
-                        if (ins.equals("yes")) {
+                        String inswer = input.nextLine().toLowerCase();
+                        if (inswer.equals("yes")) {
                             System.out.print("Entrez le code de votre compte : ");
                             codeDeCompte = input.nextLine();
                         } else {
                             System.out.println("******* Créez un compte d'abord *******");
                             break;
-                        }
+
                     }
 
                     System.out.print("Entrez le montant : ");
@@ -180,9 +174,6 @@ public class Main {
 
                     System.out.print("Entrez le code de votre compte : ");
                     String codeExpediteur = input.nextLine();
-                    System.out.print("Entrez le code du compte bénéficiaire : ");
-                    String codeBenef = input.nextLine();
-
                     System.out.print("Entrez le montant : ");
                     double montantVirement;
                     try {
@@ -196,7 +187,7 @@ public class Main {
                         break;
                     }
 
-                    versementRepo.verserToCompte(codeExpediteur, codeBenef, montantVirement, "virement", "virement");
+                    versementRepo.creditBeneficiary(codeExpediteur, montantVirement, "virement", "virement");
                     System.out.println("******* Virement effectué avec succès *******");
                     break;
 
