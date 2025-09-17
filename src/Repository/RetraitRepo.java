@@ -9,9 +9,8 @@ import Util.Helper;
 
 public class RetraitRepo {
     private final Connection connection = Dbconnection.getInstance().getConnection();
-    private static final int DECOUVERT = -10000;
+    static final int DECOUVERT = -10000;
 
-    // Retirer un montant
     public void retirer(String code, double montant , String destination) {
         String sql = "SELECT solde, type_compte FROM compte WHERE code = ?";
 
@@ -66,7 +65,7 @@ public class RetraitRepo {
 
 
     public void enrgister(String code, double montant ,  String destination) {
-            String sql = "insert into operation(id,date_operation,montant,type_operation,destination,compte_id) VALUES (?,?,?,?,?,?)";
+            String sql = "insert into operations(id,date_operation,montant,type_operation,destination,compte_id) VALUES (?,?,?,?,?,?)";
                     String UUID = Helper.genererUUID();
                     String date = Helper.genererDateOperation();
             try {

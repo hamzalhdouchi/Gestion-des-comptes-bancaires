@@ -10,7 +10,6 @@ public class Helper {
     public static String genererUUID() {
         return UUID.randomUUID().toString();
     }
-
     public static String genererCodeCompte() {
         Random random = new Random();
         int nombre = random.nextInt(100000);

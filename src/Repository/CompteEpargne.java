@@ -1,6 +1,7 @@
 package Repository;
 
 import Entity.Compte;
+import Util.Helper;
 import dbConnection.Dbconnection;
 
 import java.sql.Connection;
@@ -15,6 +16,7 @@ public class CompteEpargne extends Compte {
 
     public void créeCompte(){
         String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
+        this.Code = Helper.genererCodeCompte();
         try {
             PreparedStatement valuer = this.connection.prepareStatement(sql);
             valuer.setString(1, this.Code);
@@ -60,6 +62,7 @@ public class CompteEpargne extends Compte {
     }
 
     public void retirer(String Code,Double montant){
+        setCode(Code);
         String sql = "select * from compte where Code = ?";
         Compte val = null;
         try{
