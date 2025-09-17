@@ -1,6 +1,7 @@
 package Repository;
 
 import Entity.Compte;
+import Util.Helper;
 import dbConnection.Dbconnection;
 
 import java.sql.Connection;
@@ -13,23 +14,43 @@ public class CompteEpargne extends Compte {
     private final Double tauxInteret = 2.5;
     private Connection connection = Dbconnection.getInstance().getConnection();
 
-    public CompteEpargne(Double Sold, String Code) {
-        super(Sold, Code);
-    }
-    public void créeCompte(){
-        String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
+    public void créeCompte() {
+        String sql = "INSERT INTO Compte(code, type_compte, solde) VALUES (?, ?, ?)";
+        this.Code = Helper.genererCodeCompte();
+        double soldeInitial = this.getSolde();
         try {
             PreparedStatement valuer = this.connection.prepareStatement(sql);
             valuer.setString(1, this.Code);
-            valuer.setDouble(2,this.Solde);
-            valuer.setString(3,"Epargne");
+            valuer.setString(2, "Epargne");
+            valuer.setDouble(3, soldeInitial);
             valuer.executeUpdate();
+            calculerInteret();
+
+            System.out.println("Compte créé avec succès !");
             System.out.println("Code : " + this.Code);
 
-        }catch (Exception e){
-            System.out.println("Erreur de insertion");
+        } catch (Exception e) {
+            System.out.println("Erreur lors de l'insertion : " + e.getMessage());
         }
     }
+
+    public double calculerInteret() {
+        double interet = this.getSolde() * (tauxInteret / 100);
+        double nouveauSolde = this.getSolde() - interet;
+
+        String updateSql = "UPDATE Compte SET solde = ? WHERE code = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(updateSql);
+            stmt.setDouble(1, nouveauSolde);
+            stmt.setString(2, this.Code);
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la mise à jour du solde : " + e.getMessage());
+        }
+            return  nouveauSolde;
+    }
+
     public void afficherDetails() {
         String sql = "SELECT * FROM Compte WHERE code = ?";
         try {
@@ -47,22 +68,9 @@ public class CompteEpargne extends Compte {
             throw new RuntimeException(e);
         }
     }
-    public double calculerInteret(){
-        String sql = "select * from compte where Code = ?";
-        Double lastrs = null;
-        try {
-            PreparedStatement sold = this.connection.prepareStatement(sql);
-            sold.setString(1, Code);
-            ResultSet rs = sold.executeQuery();
-            Double solde = rs.getDouble("solde");
-            lastrs = solde * (tauxInteret /100);
-        }catch (Exception e){
-            System.out.println("Erreur de insertion");
-        }
-        return lastrs;
-    }
 
     public void retirer(String Code,Double montant){
+        setCode(Code);
         String sql = "select * from compte where Code = ?";
         Compte val = null;
         try{

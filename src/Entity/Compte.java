@@ -16,6 +16,14 @@ public abstract class Compte {
         this.listeOperations = new ArrayList<>();
     }
 
+    public Compte(String Code) {
+        this.Solde = Solde;
+        this.Code = Code;
+    }
+    public Compte() {
+
+    }
+
     public abstract void créeCompte();
     public abstract double calculerInteret();
 
@@ -39,4 +47,5 @@ public abstract class Compte {
     public void setListeOperations(List<String> listeOperations) {
         this.listeOperations = listeOperations;
     }
+
 }
