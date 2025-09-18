@@ -1,11 +1,10 @@
-import Entity.Compte;
-import Entity.Operation;
-import Entity.Retrait;
-import Entity.Versement;
-import Repository.CompteCourant;
-import Repository.CompteEpargne;
-import Repository.RetraitRepo;
-import Repository.versementRepo;
+import entity.Operation;
+import entity.Retrait;
+import entity.Versement;
+import repository.CompteCourant;
+import repository.CompteEpargne;
+import repository.RetraitRepo;
+import repository.versementRepo;
 
 import java.sql.SQLException;
 import java.util.List;

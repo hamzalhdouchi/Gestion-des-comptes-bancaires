@@ -1,7 +1,7 @@
-package Repository;
+package repository;
 
-import Entity.Compte;
-import Util.Helper;
+import entity.Compte;
+import util.Helper;
 import dbConnection.Dbconnection;
 
 import java.sql.Connection;
