@@ -64,9 +64,30 @@ brif-1/
 
 ##  demonstration
 
-<img width="1337" height="858" alt="image" src="https://github.com/user-attachments/assets/75da0ccf-1c13-4c51-b4d9-12ce8dbd0e32" />
-<img width="1460" height="875" alt="image" src="https://github.com/user-attachments/assets/c43dcffe-3b4b-457a-aae3-01fb4c65c984" />
-<img width="1472" height="897" alt="image" src="https://github.com/user-attachments/assets/6ac4c1d6-0888-4f6b-8175-f0a2ff64720c" />
+** Créer un compte **
+<img width="1919" height="714" alt="image" src="https://github.com/user-attachments/assets/ba78bf23-3cfe-4922-93b8-8e68e7fbf82f" />
+
+** Effectuer un versement **
+
+<img width="1802" height="644" alt="image" src="https://github.com/user-attachments/assets/f456053d-4c3a-4e57-9e1c-ae84664da5c9" />
+
+** Effectuer un retrait **
+
+<img width="1779" height="558" alt="image" src="https://github.com/user-attachments/assets/a3a30c02-afe3-439f-96a9-332fbffbd355" />
+
+** Effectuer un virement **
+
+<img width="1145" height="507" alt="image" src="https://github.com/user-attachments/assets/3a57c6eb-4ff4-4a7a-8af8-aebe9e0abca9" />
+
+** Consulter le solde d'un compte **
+
+<img width="1145" height="507" alt="image" src="https://github.com/user-attachments/assets/e84704e5-0cc1-44db-a308-a5af0f0c93dc" />
+
+** Consulter les opérations d'un compte **
+
+<img width="1479" height="814" alt="image" src="https://github.com/user-attachments/assets/18d85f9e-45e0-4116-92c7-f3ce92bb3cde" />
+
+
 
 
 
