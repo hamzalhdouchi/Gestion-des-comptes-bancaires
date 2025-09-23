@@ -37,7 +37,7 @@ public class CompteCourant extends Compte {
         }
         return  Solde;
     }
-    public void créeCompte(){
+    public void creeCompte(){
         String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
         this.Code = Helper.genererCodeCompte();
         try {

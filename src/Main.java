@@ -71,11 +71,11 @@ public class Main {
 
                     if (compte.equals("courant")) {
                         CompteCourant.setSolde(compteSolde);
-                        CompteCourant.créeCompte();
+                        CompteCourant.creeCompte();
                         System.out.println("******* Compte courant créé avec succès *******");
                     } else if (compte.equals("epargne")) {
                         compteEpargne.setSolde(compteSolde);
-                        compteEpargne.créeCompte();
+                        compteEpargne.creeCompte();
                         System.out.println("******* Compte épargne créé avec succès *******");
                     } else {
                         System.out.println("*******  Erreur : type de compte invalide ******");
