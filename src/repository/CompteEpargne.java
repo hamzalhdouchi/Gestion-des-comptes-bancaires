@@ -1,7 +1,7 @@
-package Repository;
+package repository;
 
-import Entity.Compte;
-import Util.Helper;
+import entity.Compte;
+import util.Helper;
 import dbConnection.Dbconnection;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ public class CompteEpargne extends Compte {
     private final Double tauxInteret = 2.5;
     private Connection connection = Dbconnection.getInstance().getConnection();
 
-    public void créeCompte() {
+    public void creeCompte() {
         String sql = "INSERT INTO Compte(code, type_compte, solde) VALUES (?, ?, ?)";
         this.Code = Helper.genererCodeCompte();
         double soldeInitial = this.getSolde();

@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public abstract class Compte {
 
     }
 
-    public abstract void créeCompte();
+    public abstract void creeCompte();
     public abstract double calculerInteret();
 
     public abstract void afficherDetails();

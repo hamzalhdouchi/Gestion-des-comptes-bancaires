@@ -1,11 +1,10 @@
-import Entity.Compte;
-import Entity.Operation;
-import Entity.Retrait;
-import Entity.Versement;
-import Repository.CompteCourant;
-import Repository.CompteEpargne;
-import Repository.RetraitRepo;
-import Repository.versementRepo;
+import entity.Operation;
+import entity.Retrait;
+import entity.Versement;
+import repository.CompteCourant;
+import repository.CompteEpargne;
+import repository.RetraitRepo;
+import repository.versementRepo;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -72,11 +71,11 @@ public class Main {
 
                     if (compte.equals("courant")) {
                         CompteCourant.setSolde(compteSolde);
-                        CompteCourant.créeCompte();
+                        CompteCourant.creeCompte();
                         System.out.println("******* Compte courant créé avec succès *******");
                     } else if (compte.equals("epargne")) {
                         compteEpargne.setSolde(compteSolde);
-                        compteEpargne.créeCompte();
+                        compteEpargne.creeCompte();
                         System.out.println("******* Compte épargne créé avec succès *******");
                     } else {
                         System.out.println("*******  Erreur : type de compte invalide ******");

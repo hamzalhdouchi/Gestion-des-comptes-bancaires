@@ -1,5 +1,5 @@
-package Repository;
-import Entity.Compte;
+package repository;
+import entity.Compte;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import Entity.Operation;
-import Entity.Retrait;
-import Entity.Versement;
-import Util.Helper;
+import entity.Operation;
+import entity.Retrait;
+import entity.Versement;
+import util.Helper;
 import dbConnection.Dbconnection;
 
 public class CompteCourant extends Compte {
@@ -37,7 +37,7 @@ public class CompteCourant extends Compte {
         }
         return  Solde;
     }
-    public void créeCompte(){
+    public void creeCompte(){
         String sql = "INSERT INTO Compte(code, solde, type_compte) VALUES (?, ?, ?)";
         this.Code = Helper.genererCodeCompte();
         try {

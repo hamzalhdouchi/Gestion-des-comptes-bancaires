@@ -1,6 +1,6 @@
-package Repository;
+package repository;
 
-import Util.Helper;
+import util.Helper;
 import dbConnection.Dbconnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
